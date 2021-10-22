@@ -5,13 +5,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject player;
-    private float speed;
+    private float speed, jumpforce;
+    public bool isGrounded;
+    private Rigidbody playerRb;
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerRb = GetComponent<Rigidbody>();
         speed = .02f;
+        jumpforce = 7.0f;
+        
     }
 
     // Update is called once per frame
@@ -24,7 +29,21 @@ public class PlayerController : MonoBehaviour
 
        transform.position += moveDirection * speed;
 
+       if (Input.GetKey(KeyCode.Space) && isGrounded == true)
+       {
+           playerRb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
+           isGrounded = false;
+       }
 
+       
 
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
