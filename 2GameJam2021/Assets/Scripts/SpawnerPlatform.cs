@@ -8,6 +8,7 @@ public class SpawnerPlatform : MonoBehaviour
     public bool activated;
     public GameObject [] platform;
     public GameObject spawnPos;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,8 @@ public class SpawnerPlatform : MonoBehaviour
     void Update()
     {
         StartCoroutine("PlatformSpawner");
+
+        transform.RotateAround(player.transform.position, Vector3.up, 20 * Time.deltaTime);
     }
 
     void PlatformRandom()
