@@ -9,6 +9,7 @@ public class SpawnerPlatform : MonoBehaviour
     public GameObject [] platform;
     public GameObject spawnPos;
     public GameObject player;
+    public float spawnRate;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +36,12 @@ public class SpawnerPlatform : MonoBehaviour
 
     IEnumerator PlatformSpawner ()
     {
+        
          if (activated == true)
          {
              PlatformRandom();
              activated = false;
-             yield return new WaitForSeconds(4);
+             yield return new WaitForSeconds(spawnRate);
              activated = true;
          }
     }

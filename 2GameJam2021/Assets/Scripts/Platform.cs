@@ -32,6 +32,7 @@ public class Platform : MonoBehaviour
         {
             
             activated = false;
+            StartCoroutine("PlatformDestroy");
         } 
 
         if (collision.gameObject.layer == 6)
@@ -42,5 +43,11 @@ public class Platform : MonoBehaviour
         }
 
        
+    }
+
+    IEnumerator PlatformDestroy()
+    {
+        yield return new WaitForSeconds(10);
+        Destroy(gameObject);
     }
 }
