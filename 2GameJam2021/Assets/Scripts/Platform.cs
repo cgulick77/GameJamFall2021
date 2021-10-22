@@ -30,14 +30,17 @@ public class Platform : MonoBehaviour
        
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("BRUH");
+            
             activated = false;
-        }
+        } 
 
-        if (collision.gameObject.CompareTag("DeleteBorders"))
+        if (collision.gameObject.layer == 6)
+
         {
-            //Debug.Log("BRUH");
+            Debug.Log("BRUH");
             Destroy(gameObject);
         }
+
+       
     }
 }
