@@ -45,5 +45,10 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+        if (collision.gameObject.layer == 7)
+        {
+            Debug.Log("End");
+        }
+            
     }
 }

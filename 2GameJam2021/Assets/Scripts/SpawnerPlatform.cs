@@ -21,7 +21,7 @@ public class SpawnerPlatform : MonoBehaviour
     {
         StartCoroutine("PlatformSpawner");
 
-        transform.RotateAround(player.transform.position, Vector3.up, 20 * Time.deltaTime);
+        transform.RotateAround(player.transform.position, Vector3.up, 30 * Time.deltaTime);
     }
 
     void PlatformRandom()

@@ -38,7 +38,7 @@ public class Platform : MonoBehaviour
         if (collision.gameObject.layer == 6)
 
         {
-            Debug.Log("BRUH");
+           // Debug.Log("BRUH");
             Destroy(gameObject);
         }
 
